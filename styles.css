@@ -1,0 +1,202 @@
+@import url('https://fonts.cdnfonts.com/css/vtks-espinhuda');
+@import url('https://fonts.cdnfonts.com/css/bodonitown');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-size: 120px;
+    --mark-size: calc(var(--cell-size) * .9);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: url(https://media.istockphoto.com/id/1486667052/vector/xoxo-colorful-seamless-pattern.jpg?s=612x612&w=0&k=20&c=WX1KDJDQc3ZQeHPzcjea_81gZbE0YcQkBcoX3P-8V2U=);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, var(--cell-size));
+    grid-template-rows: repeat(3, var(--cell-size));
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    pointer-events: none;
+    color: white;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    border: 2px solid white; 
+}
+
+
+.cell {
+    height: var(--cell-size);
+    width: var(--cell-size);
+    border: 1px solid rgb(81, 81, 81);
+    font-size: 60px;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+    border-bottom: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+    border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+    border-right: none;
+}
+
+#qsn2 {
+    display: none;
+}
+
+.qsn-txt {
+    font-size: 60px;
+    font-weight: bold; 
+    color: peachpuff;      
+}
+
+
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+    margin-top: 0px;
+}
+
+.btn-player {
+    padding: 10px;
+    font-family: 'Bodonitown', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 30px;
+    background-color: rgb(192, 241, 255);
+    color: blue;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-player:hover {
+    background-color: #eee;
+    color: black;
+}
+
+
+.btn-restart {
+    padding: 10px;
+    font-family: 'Bodonitown', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 30px;
+    background-color: #CD5C08;
+    box-shadow: 20px 30px 30px rgba(0, 0, 0, 1);
+    color: white;
+    display: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-restart:hover {
+    background-color: #eee;
+    color: black;
+}
+
+.question {
+    text-align: center;
+    color: white;
+    font-family: 'Bodonitown', sans-serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.win,
+.win-row,
+.win-col {
+    background-color: lightskyblue; 
+    color: red;
+    box-shadow: none; 
+}
+
+
+.winning-message {
+    text-align: center;
+    color: white;
+    font-family: 'Bodonitown', sans-serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.game-status {
+    color: red;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .winning-message {
+        font-size: 20px;
+    }
+    .question {
+        font-size: 20px;
+    }
+    .btn-player {
+        font-size: 12px;
+    }
+    .btn-restart {
+        font-size: 12px;
+    }
+    :root {
+        --cell-size: 100px;
+    }
+
+}
